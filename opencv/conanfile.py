@@ -1,7 +1,6 @@
 from conans import ConanFile, CMake, tools
 import os
 
-
 class OpenCVConan(ConanFile):
     name = "opencv"
     version = "4.5.0"
@@ -11,6 +10,7 @@ class OpenCVConan(ConanFile):
     topics = ("opencv", "computer-vision",
               "image-processing", "deep-learning")
     extension = "tar.gz"
+    settings = "os", "compiler", "build_type", "arch"
     options = {"with_cuda" : [True, False]}
     default_options = {"with_cuda": True}
 
@@ -22,16 +22,22 @@ class OpenCVConan(ConanFile):
     def _configure_cmake(self):
         cmake = CMake(self)
         cmake.verbose = True
-        cmake.configure(source_dir=F"../{self.name}-{self.version}", build_dir="build")
+
+        print(self.settings)
+        if self.settings.arch == "armv8":
+            cmake.definitions["WITH_IPP"] = "OFF"
+
+        cmake.configure(source_dir=F"../{self.name}-{self.version}", build_dir="build", args = ["-j8"])
         return cmake
 
     def build(self):
         cmake = self._configure_cmake()
-        cmake.build(args = ["-j8"])
+        cmake.build()
 
     def package(self):
         cmake = self._configure_cmake()
         cmake.install()
 
     def package_info(self):
+
         pass
