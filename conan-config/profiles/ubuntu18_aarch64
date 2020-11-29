@@ -1,0 +1,6 @@
+include(base)
+
+[settings]
+os.distro=Ubuntu-18
+arch=armv8
+arch_build=x86_64

@@ -17,3 +17,6 @@ RUN sudo pip3 install glob2 conan==1.31.0
 ADD opencv/conanfile.py /home/conan
 WORKDIR /home/conan
 
+ADD conan-config /home/conan/conan-config
+RUN conan config install /home/conan/conan-config
+

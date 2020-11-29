@@ -1,0 +1,9 @@
+include(pho_Ubuntu-18_x86_64)
+
+[settings]
+compiler.version=7.5.0
+
+[env]
+CXX=g++-7
+CC=gcc-7
+GCC_LIB_DIR=/usr/lib/gcc/x86_64-linux-gnu/7.5.0/

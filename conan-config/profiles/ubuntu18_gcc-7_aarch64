@@ -1,0 +1,8 @@
+include(ubuntu18_aarch64)
+
+[settings]
+compiler=gcc
+compiler.version=7.5.0
+[env]
+CXX=aarch64-linux-gnu-g++-7
+CC=aarch64-linux-gnu-gcc-7

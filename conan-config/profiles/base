@@ -1,0 +1,8 @@
+[build_requires]
+[settings]
+os=Linux
+os_build=Linux
+compiler.libcxx=libstdc++11
+build_type=Release
+[options]
+[env]
