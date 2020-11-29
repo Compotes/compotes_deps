@@ -1,4 +1,4 @@
-include(pho_Ubuntu-18_x86_64)
+include(ubuntu-18_x86_64)
 
 [settings]
 compiler.version=7.5.0

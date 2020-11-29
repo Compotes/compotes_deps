@@ -1,4 +1,4 @@
-include(ubuntu18_aarch64)
+include(ubuntu-18_aarch64)
 
 [settings]
 compiler=gcc
